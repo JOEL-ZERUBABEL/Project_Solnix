@@ -1,0 +1,465 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "hi",
+        "hello",
+        "hey",
+        "good morning",
+        "good evening",
+        "good afternoon",
+        "hi there",
+        "hello there",
+        "hey bot",
+        "is anyone there",
+        "can you help me",
+        "start chat"
+      ],
+      "responses": [
+        "Hello! How can I assist you today?",
+        "Hi there! What can I help you with?",
+        "Welcome! How may I help you?"
+      ]
+    },
+
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "bye",
+        "goodbye",
+        "see you",
+        "exit",
+        "quit",
+        "end chat",
+        "talk later",
+        "bye bye",
+        "thanks goodbye",
+        "close chat"
+      ],
+      "responses": [
+        "Take care! Stay healthy.",
+        "Goodbye! Wishing you good health.",
+        "See you soon. Stay safe!"
+      ]
+    },
+
+    {
+      "tag": "thanks",
+      "patterns": [
+        "thanks",
+        "thank you",
+        "thanks a lot",
+        "appreciate it",
+        "much appreciated",
+        "thank you so much",
+        "thanks for the help",
+        "great help",
+        "nice thanks",
+        "thanks buddy"
+      ],
+      "responses": [
+        "You're welcome!",
+        "Happy to help!",
+        "Anytime! Let me know if you need more help."
+      ]
+    },
+
+    {
+      "tag": "appointment_booking",
+      "patterns": [
+        "book appointment",
+        "schedule appointment",
+        "doctor appointment",
+        "book doctor visit",
+        "schedule doctor",
+        "appointment booking",
+        "i want to see a doctor",
+        "need appointment",
+        "fix appointment",
+        "consult a doctor"
+      ],
+      "responses": [
+        "I can help you book an appointment. Please choose a preferred date and time.",
+        "Sure! Let me know when you would like to schedule your appointment."
+      ]
+    },
+
+    {
+      "tag": "appointment_cancel",
+      "patterns": [
+        "cancel appointment",
+        "delete appointment",
+        "remove appointment",
+        "cancel my booking",
+        "i want to cancel appointment",
+        "appointment cancel",
+        "drop appointment",
+        "stop appointment",
+        "cancel doctor visit"
+      ],
+      "responses": [
+        "Please provide your appointment ID to cancel.",
+        "Sure, I can cancel it. Kindly share the appointment ID."
+      ]
+    },
+
+    {
+      "tag": "appointment_reschedule",
+      "patterns": [
+        "reschedule appointment",
+        "change appointment",
+        "modify appointment",
+        "change appointment time",
+        "reschedule doctor visit",
+        "update appointment",
+        "move appointment",
+        "postpone appointment"
+      ],
+      "responses": [
+        "Please share your appointment ID and the new preferred time.",
+        "Sure! Let me know the updated date and time."
+      ]
+    },
+
+    {
+      "tag": "doctor_availability",
+      "patterns": [
+        "doctor available",
+        "available doctors",
+        "doctor timing",
+        "is doctor available",
+        "consultation time",
+        "doctor schedule",
+        "when is doctor free",
+        "doctor availability today",
+        "doctor working hours"
+      ],
+      "responses": [
+        "Please tell me the department or doctor name to check availability.",
+        "Sure, which doctor or department are you looking for?"
+      ]
+    },
+
+    {
+      "tag": "departments",
+      "patterns": [
+        "departments",
+        "medical departments",
+        "hospital departments",
+        "available departments",
+        "specialists",
+        "specialties",
+        "list departments",
+        "what departments do you have",
+        "medical specialties"
+      ],
+      "responses": [
+        "We have Cardiology, Neurology, Orthopedics, Pediatrics, and General Medicine.",
+        "Our hospital offers multiple departments. Which one are you looking for?"
+      ]
+    },
+
+    {
+      "tag": "symptom_check",
+      "patterns": [
+        "i have fever",
+        "i have headache",
+        "i feel sick",
+        "stomach pain",
+        "body pain",
+        "cold and cough",
+        "not feeling well",
+        "i feel dizzy",
+        "health issue",
+        "medical problem"
+      ],
+      "responses": [
+        "I recommend consulting a doctor. Would you like to book an appointment?",
+        "It’s better to consult a medical professional. Shall I help you book a visit?"
+      ]
+    },
+
+    {
+      "tag": "emergency",
+      "patterns": [
+        "emergency",
+        "urgent help",
+        "medical emergency",
+        "serious condition",
+        "need immediate help",
+        "critical situation",
+        "accident",
+        "severe pain",
+        "life threatening"
+      ],
+      "responses": [
+        "Please contact emergency services immediately or visit the nearest hospital.",
+        "This sounds serious. Kindly seek emergency medical help right away."
+      ]
+    },
+
+    {
+      "tag": "working_hours",
+      "patterns": [
+        "working hours",
+        "hospital timing",
+        "open time",
+        "when are you open",
+        "opening hours",
+        "closing time",
+        "hospital schedule",
+        "what time do you open"
+      ],
+      "responses": [
+        "Our hospital operates from 8 AM to 8 PM daily.",
+        "We are open every day from morning till evening."
+      ]
+    },
+
+    {
+      "tag": "location",
+      "patterns": [
+        "hospital location",
+        "address",
+        "where are you located",
+        "hospital address",
+        "location of hospital",
+        "how to reach hospital",
+        "directions",
+        "hospital place"
+      ],
+      "responses": [
+        "We are located at the city medical center.",
+        "Our hospital is centrally located. Directions can be shared."
+      ]
+    },
+
+    {
+      "tag": "fallback",
+      "patterns": [
+        "asdfgh",
+        "random text",
+        "i dont know",
+        "blah blah",
+        "nonsense",
+        "???",
+        "what are you saying",
+        "unknown input"
+      ],
+      "responses": [
+        "I’m sorry, I didn’t understand that. Could you please rephrase?",
+        "I didn’t quite get that. Can you try asking in a different way?"
+      ]
+    },
+    {
+      "tag": "patient_age_entry",
+      "patterns": ["my age is 45", "i am 30 years old"],
+      "responses": ["Thank you. I’ve noted the patient age."]
+    },
+    {
+      "tag": "patient_gender_entry",
+      "patterns": ["male", "female", "other gender"],
+      "responses": ["Gender information recorded."]
+    },
+    {
+      "tag": "patient_contact_update",
+      "patterns": ["update phone number", "change contact details"],
+      "responses": ["Please provide the updated contact information."]
+    },
+    {
+      "tag": "patient_emergency_contact",
+      "patterns": ["add emergency contact", "emergency number"],
+      "responses": ["Please share the emergency contact details."]
+    },
+
+    {
+      "tag": "symptom_breathing_issue",
+      "patterns": ["difficulty breathing", "shortness of breath"],
+      "responses": ["Breathing difficulty can be serious. Please seek medical attention immediately."]
+    },
+    {
+      "tag": "symptom_back_pain",
+      "patterns": ["back pain", "lower back pain"],
+      "responses": ["Back pain should be evaluated by a doctor. Would you like to book a consultation?"]
+    },
+    {
+      "tag": "symptom_diabetes",
+      "patterns": ["diabetes symptoms", "high sugar level"],
+      "responses": ["Diabetes-related concerns should be reviewed by a specialist."]
+    },
+    {
+      "tag": "symptom_bp_issue",
+      "patterns": ["high bp", "low blood pressure"],
+      "responses": ["Blood pressure issues require medical monitoring."]
+    },
+    {
+      "tag": "symptom_allergy",
+      "patterns": ["skin allergy", "food allergy"],
+      "responses": ["Allergy symptoms can vary. A consultation is recommended."]
+    },
+
+    {
+      "tag": "download_medical_report",
+      "patterns": ["download report", "get my medical report"],
+      "responses": ["You can download your medical reports from the patient portal."]
+    },
+    {
+      "tag": "update_medical_history",
+      "patterns": ["update medical history", "add past illness"],
+      "responses": ["Please provide details to update your medical history."]
+    },
+    {
+      "tag": "doctor_notes_access",
+      "patterns": ["doctor notes", "consultation notes"],
+      "responses": ["Doctor notes can be accessed after verification."]
+    },
+
+    {
+      "tag": "insurance_provider_list",
+      "patterns": ["insurance providers", "supported insurance"],
+      "responses": ["We support multiple insurance providers. Please specify your provider."]
+    },
+    {
+      "tag": "policy_verification",
+      "patterns": ["verify policy", "insurance verification"],
+      "responses": ["Please share your policy number for verification."]
+    },
+    {
+      "tag": "refund_request",
+      "patterns": ["request refund", "refund status"],
+      "responses": ["Please provide your transaction details to process the refund."]
+    },
+
+    {
+      "tag": "missed_appointment",
+      "patterns": ["missed appointment", "did not attend appointment"],
+      "responses": ["Would you like to reschedule your missed appointment?"]
+    },
+    {
+      "tag": "followup_sms",
+      "patterns": ["sms reminder", "text reminder"],
+      "responses": ["Follow-up SMS reminders are enabled."]
+    },
+    {
+      "tag": "followup_email",
+      "patterns": ["email reminder", "follow-up mail"],
+      "responses": ["Email reminders are scheduled for your follow-up."]
+    },
+
+    {
+      "tag": "vitals_analysis",
+      "patterns": ["analyze vitals", "health vitals analysis"],
+      "responses": ["Vitals analysis can be generated from your medical data."]
+    },
+    {
+      "tag": "chronic_disease_tracking",
+      "patterns": ["track diabetes", "chronic disease tracking"],
+      "responses": ["Chronic condition tracking is available."]
+    },
+    {
+      "tag": "recovery_progress",
+      "patterns": ["recovery progress", "healing status"],
+      "responses": ["Recovery insights can be shared based on follow-up data."]
+    },
+
+    {
+      "tag": "diagnostic_center_info",
+      "patterns": ["diagnostic center", "test center"],
+      "responses": ["Diagnostic services are available at authorized centers."]
+    },
+    {
+      "tag": "ambulance_request",
+      "patterns": ["call ambulance", "need ambulance"],
+      "responses": ["Please contact emergency services immediately for ambulance support."]
+    },
+    {
+      "tag": "home_care_services",
+      "patterns": ["home care", "nurse at home"],
+      "responses": ["Home care services are available upon request."]
+    },
+
+    {
+      "tag": "voice_booking",
+      "patterns": ["book appointment by voice", "voice booking"],
+      "responses": ["Voice-based appointment booking is supported."]
+    },
+    {
+      "tag": "voice_symptom_check",
+      "patterns": ["voice symptom check", "speak symptoms"],
+      "responses": ["You can describe symptoms using voice assistance."]
+    },
+    {
+      "tag": "voice_followup",
+      "patterns": ["voice follow up", "voice reminder"],
+      "responses": ["Voice reminders are enabled for follow-ups."]
+    },
+
+    {
+      "tag": "health_package_info",
+      "patterns": ["health packages", "checkup packages"],
+      "responses": ["We offer multiple health check-up packages."]
+    },
+    {
+      "tag": "preventive_care",
+      "patterns": ["preventive care", "health prevention"],
+      "responses": ["Preventive healthcare services are available."]
+    },
+    {
+      "tag": "elderly_care",
+      "patterns": ["elderly care", "senior care services"],
+      "responses": ["Specialized elderly care services are available."]
+    },
+
+    {
+      "tag": "child_health",
+      "patterns": ["child health", "pediatric care"],
+      "responses": ["Pediatric care services are available."]
+    },
+    {
+      "tag": "women_health",
+      "patterns": ["women health", "gynecology services"],
+      "responses": ["Women’s healthcare services are available."]
+    },
+    {
+      "tag": "men_health",
+      "patterns": ["men health", "andrology services"],
+      "responses": ["Men’s health services are supported."]
+    },
+
+    {
+      "tag": "health_alerts",
+      "patterns": ["health alerts", "medical alerts"],
+      "responses": ["Health alerts will be notified when required."]
+    },
+    {
+      "tag": "data_backup",
+      "patterns": ["data backup", "medical data backup"],
+      "responses": ["Your medical data is securely backed up."]
+    },
+    {
+      "tag": "system_support",
+      "patterns": ["system issue", "technical support"],
+      "responses": ["Our technical support team is available to assist."]
+    },
+    {
+    "tag": "department_query",
+    "patterns": [
+    "cardiology",
+    "heart doctor",
+    "brain doctor",
+    "neurology",
+    "bone doctor",
+    "orthopedic",
+    "skin doctor",
+    "dermatology",
+    "general doctor"
+  ],
+    "responses": [
+    "Let me check doctor availability for you."
+  ]
+  }
+
+    
+  ]
+}

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solnix</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root {
+    --bg: #000;
+    --text: #fff;
+    --card-shadow: rgba(0,0,0,0.8);
+    --border: rgba(255,255,255,0.8);
+}
+
+#theme-toggle:checked ~ .page {
+    --bg: #f5f5f5;
+    --text: #111;
+    --card-shadow: rgba(0,0,0,0.2);
+    --border: rgba(0,0,0,0.3);
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+}
+
+.page {
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    text-align: center;
+}
+
+#theme-toggle, #chat-toggle {
+    display: none;
+}
+
+.toggle {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    width: 70px;
+    height: 34px;
+    background: #333;
+    border-radius: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    z-index: 1000;
+}
+
+.toggle i { color: white; }
+
+h6 { margin-top: 70px; }
+h3 { font-size: 32px; }
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+    margin-top: 90px;
+    flex-wrap: wrap;
+}
+
+.box {
+    width: 430px;
+    height: 220px;
+    border-radius: 22px;
+    padding: 35px;
+    cursor: pointer;
+    box-shadow: 0 15px 45px var(--card-shadow);
+    transition: 0.4s;
+}
+
+.box:hover {
+    transform: scale(1.08);
+    border: 2px solid var(--border);
+}
+
+.red { background: linear-gradient(135deg, #980005, #f42500); }
+.green { background: linear-gradient(135deg, #003e2e, #68d608); }
+.gold { background: linear-gradient(135deg, #ec870c, #ffd200); color: #111; }
+
+.chat-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 65px;
+    height: 65px;
+    background: linear-gradient(135deg, #0c0200, #030000);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.chatbox {
+    position: fixed;
+    bottom: 120px;
+    right: 30px;
+    width: 360px;
+    height: 480px;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 22px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+#chat-toggle:checked ~ .chatbox {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+.chat-header {
+    padding: 15px;
+    background: linear-gradient(135deg, #000000, #8b8383);
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between;
+}
+
+.chat-body {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.bot-msg, .user-msg {
+    padding: 10px 14px;
+    border-radius: 14px;
+    margin-bottom: 10px;
+    max-width: 75%;
+}
+
+.bot-msg { background: #fcf9f9; }
+.user-msg {
+    background: #fff7f7;
+    margin-left: auto;
+}
+
+.chat-input {
+    display: flex;
+    gap: 10px;
+    padding: 12px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+}
+
+.chat-input button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #b4a9a7;
+    color: white;
+    border: none;
+}
+</style>
+</head>
+
+<body>
+
+<input type="checkbox" id="theme-toggle">
+<input type="checkbox" id="chat-toggle">
+
+<div class="page">
+
+<label for="theme-toggle" class="toggle">
+    <i class="fa-solid fa-moon"></i>
+    <i class="fa-solid fa-sun"></i>
+</label>
+
+<h6>Welcome to Solnix</h6>
+<h3>Our service is here to support you</h3>
+
+<div class="container">
+    <div class="box red">Appointment Booking</div>
+    <div class="box green">Sample Check</div>
+    <div class="box gold">X-Ray Services</div>
+</div>
+</div>
+
+<label for="chat-toggle" class="chat-btn">
+    <i class="fa-solid fa-comments"></i>
+</label>
+
+<form class="chatbox" id="chat-form">
+{% csrf_token %}
+
+<div class="chat-header">
+    Solnix Assistant
+    <label for="chat-toggle">&times;</label>
+</div>
+
+<div class="chat-body" id="chat-body">
+    <div class="bot-msg">👋 Hi! How can I help you today?</div>
+</div>
+
+<div class="chat-input">
+    <input type="text" id="chat-input" placeholder="Type your message..." required>
+    <button type="submit">
+        <i class="fa-solid fa-paper-plane"></i>
+    </button>
+</div>
+</form>
+
+<script>
+const form = document.getElementById("chat-form");
+const input = document.getElementById("chat-input");
+const body = document.getElementById("chat-body");
+
+function addUserMessage(msg){
+    body.innerHTML += `<div class="user-msg">${msg}</div>`;
+    body.scrollTop = body.scrollHeight;
+}
+
+function addBotMessage(msg){
+    body.innerHTML += `<div class="bot-msg">${msg}</div>`;
+    body.scrollTop = body.scrollHeight;
+}
+
+function showTyping(){
+    const typing = document.createElement("div");
+    typing.className = "bot-msg";
+    typing.id = "typing";
+    typing.innerText = "Typing...";
+    body.appendChild(typing);
+    body.scrollTop = body.scrollHeight;
+}
+
+function removeTyping(){
+    const typing = document.getElementById("typing");
+    if(typing){
+        typing.remove();
+    }
+}
+
+form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const msg = input.value.trim();
+    if(!msg) return;
+
+    addUserMessage(msg);
+    input.value = "";
+
+    showTyping();
+
+    fetch("/backend/chatbox/", {
+        method: "POST",
+        headers: {
+            "X-CSRFToken": document.querySelector('[name=csrfmiddlewaretoken]').value,
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: new URLSearchParams({
+            message: msg
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+
+        removeTyping();
+
+        if(data.response){
+            addBotMessage(data.response);
+        }
+        else if(data.reply){
+            addBotMessage(data.reply);
+        }
+        else{
+            addBotMessage("Sorry, I couldn't understand.");
+        }
+
+    })
+    .catch(error => {
+
+        removeTyping();
+        addBotMessage("⚠️ Server error. Please try again.");
+
+    });
+
+});
+</script>
